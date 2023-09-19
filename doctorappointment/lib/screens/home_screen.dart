@@ -1,19 +1,13 @@
-import 'dart:convert';
-import 'dart:io';
-import 'dart:math';
 import 'package:doctorappointment/common/common.dart';
 import 'package:doctorappointment/models/CategoriesModel.dart';
 import 'package:doctorappointment/screens/appoint_screen.dart';
 import 'package:doctorappointment/screens/dental_screen.dart';
 import 'package:doctorappointment/screens/login_screen.dart';
-import 'package:doctorappointment/screens/patient_details_screen.dart';
 import 'package:doctorappointment/screens/profilepictureupload_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:doctorappointment/common/sharedPreferences.dart';
-import '../screens/ratingdialog_screen.dart';
 final shareddata = SharedPref();
 
 Map<String, dynamic>? DoctorList;
@@ -187,11 +181,11 @@ print("&&"+a.toString());
                                       radius: 30,
                                       backgroundImage:
                                       
-                                          NetworkImage('http://192.168.1.4:3002/users/getuserimagefromlocal?id=45'),
-                                      // gender ==
-                                      // 'female'?
-                                      //     AssetImage("images/female.jpg")
-                                      //     :AssetImage("images/male.jpeg"),
+                                          // NetworkImage('http://192.168.1.4:3002/users/getuserimagefromlocal?id=186'),
+                                      gender ==
+                                      'female'?
+                                          AssetImage("images/female.jpg")
+                                          :AssetImage("images/male.jpeg"),
                                             
                                     ),
                                   ),

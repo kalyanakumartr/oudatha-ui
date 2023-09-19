@@ -29,7 +29,7 @@ class _AppointScreenState extends State<AppointScreen> with common {
   
   int? _currentIndex;
   int? currentSlotId;
-  bool _dateSelected = false;
+  // bool _dateSelected = false;
   bool _timeSelected = false;
   int? userIdhere;
   String? name;
@@ -79,8 +79,7 @@ class _AppointScreenState extends State<AppointScreen> with common {
   void initState() {
     user = widget.username;
     transferdata();
-    doctorslot.clear();
-    
+    doctorslot.clear();    
     service=NotificationService();
     service.initNotification();
     listenToNotification();
@@ -346,7 +345,7 @@ class _AppointScreenState extends State<AppointScreen> with common {
                           onTap: () {
                             _showDatePicker();
                             // print("::"+dateinput.text);
-                            //  print(":::"+widget.username['DocId'].toString());
+                             print(":::"+widget.username['DocId'].toString());
                              checkSlot(dateinput.text);
                           }),
                       SizedBox(height: 10),
@@ -479,7 +478,7 @@ class _AppointScreenState extends State<AppointScreen> with common {
 
   Future<dynamic> checkSlot(date) async {
     doctorslot.clear();
-    //print("???"+widget.username['DocId'].toString());
+    print("???"+widget.username['DocId'].toString());
     await getdrslot(widget.username['DocId'], date.toString());
     //print("doctorslot" + doctorslot.toString());
     if (doctorslot.length > 0) {

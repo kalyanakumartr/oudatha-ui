@@ -1,8 +1,6 @@
 import 'package:doctorappointment/models/CategoriesModel.dart';
-import 'package:doctorappointment/screens/details_screen.dart';
 import 'package:doctorappointment/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import '../widgets/doctors_section.dart';
 import 'appoint_screen.dart';
 
 Map<String, dynamic>? user;

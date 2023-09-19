@@ -25,7 +25,7 @@ mixin common {
   }
  
  openRatingDialog(BuildContext context,int id){
-  // print(id);
+  print(id);
       showDialog(context: context, 
       builder: (context){
         return Dialog(
@@ -99,7 +99,7 @@ Future<dynamic> setToken(dynamic value) async {
     prefs!.setString('accessToken',value['accesstoken']);
     prefs!.setString('userName',value['username']);
     prefs!.setString('Gender',value['Gender']);
-    prefs!.setInt('stsId',value['stsId']);
+    prefs!.setInt('stsId',value['stsId']== null?value['stsId']== 0:value['stsId']);
     prefs!.setInt('appId',value['appId']);
     prefs!.setString('email',value['email']);
     prefs!.setString('phoneNumber',value['phonenumber']);
@@ -171,7 +171,7 @@ var Token=patdet.accessToken;
 var Token=patdet.accessToken; 
    print("+++++"+Token);
     final response = await http.get(Uri.parse(
-        "http://192.168.1.4:3002/users/getdoctorslot?drId=" +
+        "http://192.168.1.4:3002/users/getdoctorslot?appDrId=" +
             id.toString() +
             "&drAppDate=" +
             date),

@@ -295,8 +295,8 @@ var Token=patdet.accessToken;
                                 child: new Text(
                                   item['categories'],
                                   style:TextStyle(
-                                    fontSize:15,),                                  
-                                ),                                
+                                    fontSize:15,),     
+                                ),   
                                 value:item['catid'].toString(),
                             );
                            
