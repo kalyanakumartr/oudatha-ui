@@ -25,7 +25,7 @@ mixin common {
   }
  
  openRatingDialog(BuildContext context,int id){
-  print(id);
+  // print(id);
       showDialog(context: context, 
       builder: (context){
         return Dialog(
