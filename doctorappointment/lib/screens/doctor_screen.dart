@@ -1,8 +1,4 @@
-import 'dart:convert';
-
 import 'package:doctorappointment/common/common.dart';
-import 'package:doctorappointment/screens/doctor_screen.dart';
-import 'package:doctorappointment/screens/ratingdialog_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +27,7 @@ class DoctorScreen extends StatefulWidget {
 
 class _DoctorScreenState extends State<DoctorScreen> with common {
   TextEditingController dateinput = TextEditingController();
-  DateTime _dateTime = DateTime.now();
+  // DateTime _dateTime = DateTime.now();
   SampleItem? selectedMenu;
   String? docName;
   int? docId;
@@ -203,6 +199,7 @@ class _DoctorScreenState extends State<DoctorScreen> with common {
                              NotificationService()
               .showNotification(id:0,title: 'your appointment has been cancled', body: 'by doctor!',payload: "hi payload");
                              drCancel(createList[index]['id'], context);
+                            Navigator.of(context).pop();
                           },
                         ),
                          ),

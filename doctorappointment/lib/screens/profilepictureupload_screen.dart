@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:ffi';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -50,7 +47,7 @@ void transferdata() async {
 
   @override
   Widget build(BuildContext context) {
-    int a=45;
+    // int a=45;
     print("+++"+widget.username.toString() );
 
     return Scaffold(
@@ -72,7 +69,7 @@ void transferdata() async {
                                 radius: 100,
                                 backgroundImage: 
                                
-                                 NetworkImage( 'http://192.168.1.4:3002/users/getuserimagefromlocal?id=${widget.username}'),
+                                  NetworkImage( 'http://192.168.1.4:3002/users/getuserimagefromlocal?id=${widget.username}'),
     // 'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'),
                                       //  FileImage(File(imageUrl.path)) ,
                           //        imagepath == null
@@ -81,7 +78,7 @@ void transferdata() async {
                               //  Image.memory(getUserImage(53) as Uint8List) as ImageProvider,
               //  FileImage(File(imagepath!.path)) 
                                            
-                                //  AssetImage("images/male.jpeg"),
+                                  // AssetImage("images/male.jpeg"),
                               
                               ),
                             

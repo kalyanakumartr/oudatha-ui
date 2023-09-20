@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 import 'package:doctorappointment/common/common.dart';
 import 'package:http/http.dart' as http;
@@ -7,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../common/sharedPreferences.dart';
 final shareddata = SharedPref();
 
-
+List<dynamic> resultDetail = [];
 class RatingView extends StatefulWidget {
   const RatingView({super.key,} );
  
@@ -184,14 +185,26 @@ part1(){
           color: Colors.black,
                   fontSize: 20,
       )),
-      Text("-----Dr Name-----",
+      Text(  
+        //  "Doc",
+          "Dr "+
+         resultDetail[0]['userName'].toUpperCase(),
       style:TextStyle(
           color: Colors.blue,
                   fontSize: 20,
                   fontWeight: FontWeight.bold
       )
       ),
-      Text("Designation"),
+      Text(
+        // "designation",
+         resultDetail[0]['designation'],
+     
+      ),
+      Text(
+          // "Consulted on",
+           "Consulted on  "+ resultDetail[0]['appointmentDate'] +   "  at  "+ resultDetail[0]['slot']
+        )
+      
       
     ],
     
@@ -205,21 +218,24 @@ part2(){
 }
 
 Future postRating(int rating,String comment,int appId)async{
+   final patdet = await shareddata.getpatdata();
+var Token=patdet.accessToken; 
+   print("+++++"+Token);
   print("+++"+rating.toString()+"---"+comment+"***"+appId.toString());
   final response = await http
         .post(Uri.parse("http://192.168.1.4:3002/users/rating"), 
-        //  headers: <String, String>{
-        //       'Content-Type': 'application/json; charset=UTF-8',
-        //       'Authorization': 'Bearer $Token',
-        //     },
-        body: {
+         headers: <String, String>{
+              'Content-Type': 'application/json; charset=UTF-8',
+              'Authorization': 'Bearer $Token',
+            },
+        body: jsonEncode({
       'appId': appId.toString(),
       'ratingStars': rating.toString(),
       'ratingReviewCmd': comment,
       
 
     },
-    );
+        ));
      
     print(response.statusCode);
     if(rating>0 && commentController.text.isEmpty){
@@ -236,9 +252,7 @@ Future postRating(int rating,String comment,int appId)async{
   void transferdata() async {
     final patdet = await shareddata.getpatdata();
     setState(() {
-      
-       appId=patdet.appId;
-     
+         appId=patdet.appId;    
       
       print("appId:"+appId.toString());
       

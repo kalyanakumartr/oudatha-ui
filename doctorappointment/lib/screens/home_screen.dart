@@ -11,7 +11,7 @@ import 'package:doctorappointment/common/sharedPreferences.dart';
 final shareddata = SharedPref();
 
 Map<String, dynamic>? DoctorList;
-var userdata;
+dynamic userdata;
 List<dynamic> doctortype = [];
 List<dynamic> doctorlist = [
   {"doctype": "Dental"},
@@ -27,7 +27,9 @@ enum SampleItem { itemOne, itemTwo, itemThree }
 SharedPreferences? prefs;
 
 class HomeScreen extends StatefulWidget {
-  // const HomeScreen({super.key});
+   const HomeScreen({ required this.user});
+final user;
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -66,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> with common {
 
   @override
   void initState() {
-     
+     userdata=widget.user;
    searchDoc = docImage;
    
      transferdata();
@@ -181,11 +183,11 @@ print("&&"+a.toString());
                                       radius: 30,
                                       backgroundImage:
                                       
-                                          // NetworkImage('http://192.168.1.4:3002/users/getuserimagefromlocal?id=186'),
-                                      gender ==
-                                      'female'?
-                                          AssetImage("images/female.jpg")
-                                          :AssetImage("images/male.jpeg"),
+                                           NetworkImage('http://192.168.1.4:3002/users/getuserimagefromlocal?id=${widget.user}'),
+                                      // gender ==
+                                      // 'female'?
+                                      //     AssetImage("images/female.jpg")
+                                      //     :AssetImage("images/male.jpeg"),
                                             
                                     ),
                                   ),
@@ -607,7 +609,7 @@ print("&&"+a.toString());
       var token=patdet.accessToken;
        
 if(stsId== 4){
-          
+     getDoctorDetail(appId!);  
      openRatingDialog( context,appId!);         
      }
      else{

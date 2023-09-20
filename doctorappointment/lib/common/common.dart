@@ -67,7 +67,7 @@ mixin common {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => HomeScreen(),
+              builder: (context) => HomeScreen(user:result['userId']),
             ));
       } else {
         Navigator.push(
@@ -99,7 +99,13 @@ Future<dynamic> setToken(dynamic value) async {
     prefs!.setString('accessToken',value['accesstoken']);
     prefs!.setString('userName',value['username']);
     prefs!.setString('Gender',value['Gender']);
-    prefs!.setInt('stsId',value['stsId']== null?value['stsId']== 0:value['stsId']);
+    // print("###:"+value['stsId']);
+    // if(value['stsId'] == null){
+    //   prefs!.setInt('stsId',value[0]);
+    // }else{
+    //    prefs!.setInt('stsId',value['stsId']);
+    // }
+    prefs!.setInt('stsId',value['stsId']);
     prefs!.setInt('appId',value['appId']);
     prefs!.setString('email',value['email']);
     prefs!.setString('phoneNumber',value['phonenumber']);
@@ -110,7 +116,14 @@ Future<dynamic> setToken(dynamic value) async {
   Future getToken() async {
     prefs = await SharedPreferences.getInstance();
    // print( prefs!.getString(('accesstoken') ));
-    return prefs!.getString(('accesstoken'));
+   print( "gettoken:"+ prefs!.getInt(('appId') ).toString());
+     prefs!.getString(('accesstoken'));
+      prefs!.getInt('appId');
+     
+ 
+    return prefs;
+   
+
   }
 
 
@@ -351,6 +364,34 @@ var Token=patdet.accessToken;
     return result;
     
   }
+
+
+Future getDoctorDetail(int id) async {
+//     final patdet = await shareddata.getpatdata();
+// var Token=patdet.accessToken; 
+//    print("+++++"+Token);
+ print("Hi+++id:"+id.toString());
+
+       final response = await http
+        .get(Uri.parse("http://192.168.1.4:3002/users/doctordetail?id="+id.toString())
+        //  headers: {
+        //   'contentType':'application/json;charset=UTF-8',
+        //   'Authorization':'Bearer $Token',
+        // }
+        
+         );
+         var result =json.decode(response.body);
+         print(response.body);
+        
+         resultDetail=result;
+         print(resultDetail);
+         print(resultDetail[0]['userName']);
+         
+        //  print(result[0]['userName']);
+        //  print("****"+ '$Token');   
+          return result;
+
+}
 
 
   

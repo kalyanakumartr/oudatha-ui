@@ -1,4 +1,3 @@
-import 'package:doctorappointment/screens/home_screen.dart';
 import 'package:doctorappointment/screens/login_screen.dart';
 import 'package:doctorappointment/screens/signup_screen.dart';
 import 'package:flutter/material.dart';

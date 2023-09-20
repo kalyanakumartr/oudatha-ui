@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:doctorappointment/common/common.dart';
-import 'package:doctorappointment/screens/home_screen.dart';
 import 'package:doctorappointment/screens/signup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 SharedPreferences? prefs;
@@ -18,7 +15,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> with common {
-  final _formKey = GlobalKey<FormState>();
+  // final _formKey = GlobalKey<FormState>();
   bool passToggle = true;
   var UsernameController = TextEditingController();
   var PasswordController = TextEditingController();
