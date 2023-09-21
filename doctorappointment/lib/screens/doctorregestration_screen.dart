@@ -33,7 +33,7 @@ class _DoctorRegistrationState extends State<DoctorRegistration> with common{
   var CertificateNoController= TextEditingController();
 List categoryList = [];
 String? categoryId;
-
+ 
 
 Future<List?> getcategoryList() async {
 final patdet = await shareddata.getpatdata();
@@ -59,7 +59,7 @@ var Token=patdet.accessToken;
   void initState() {
         super.initState();
         this.getcategoryList();
-   
+    
   }
   
   @override

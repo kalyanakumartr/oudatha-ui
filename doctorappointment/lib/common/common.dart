@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:doctorappointment/screens/admin_screen.dart';
 import 'package:doctorappointment/screens/doctor_screen.dart';
 import 'package:doctorappointment/screens/home_screen.dart';
@@ -12,6 +13,7 @@ import '../screens/ratingdialog_screen.dart';
 final shareddata = SharedPref();
 
 SharedPreferences? prefs;
+
 mixin common {
   Future showdialog(BuildContext context, String message) async {
        return showDialog(
@@ -393,7 +395,55 @@ Future getDoctorDetail(int id) async {
 
 }
 
+// post rating in ratingdialod_screen
+Future postRating(int rating,String comment,int appId)async{
+   final patdet = await shareddata.getpatdata();
+var Token=patdet.accessToken; 
+   print("+++++"+Token);
+  print("+++"+rating.toString()+"---"+comment+"***"+appId.toString());
+  final response = await http
+        .post(Uri.parse("http://192.168.1.4:3002/users/rating"), 
+         headers: <String, String>{
+              'Content-Type': 'application/json; charset=UTF-8',
+              'Authorization': 'Bearer $Token',
+            },
+        body: jsonEncode({
+      'appId': appId.toString(),
+      'ratingStars': rating.toString(),
+      'ratingReviewCmd': comment,
+      
 
+    },
+        ));
+     
+    print(response.statusCode);
+    // if(rating>0 && commentController.text.isEmpty){
+    //                    Navigator.of(context).pop();
+    //                   showdialog(context, "Thank You");
+    //                  }
+    //                else
+    //                  showdialog(context, "Please Enter Some Value");
+                    
+                   
+    return response.body;
+  }
+
+//post reviewpending in doctor_screen
+Future reviewPending(int id) async{
+  print("*** start");
+   final response = await http
+        .post(Uri.parse("http://192.168.1.4:3002/users/doctorreviewpending"), 
+        body: {
+          'id':id.toString(),
+        }
+        );
+        print(response.statusCode);
+        return response.body;
+ }
+ 
+
+ 
+ 
   
   }
 

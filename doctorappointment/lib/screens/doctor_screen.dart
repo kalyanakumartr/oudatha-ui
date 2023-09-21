@@ -199,7 +199,7 @@ class _DoctorScreenState extends State<DoctorScreen> with common {
                              NotificationService()
               .showNotification(id:0,title: 'your appointment has been cancled', body: 'by doctor!',payload: "hi payload");
                              drCancel(createList[index]['id'], context);
-                            Navigator.of(context).pop();
+                            // Navigator.of(context).pop();
                           },
                         ),
                          ),
@@ -305,17 +305,6 @@ class _DoctorScreenState extends State<DoctorScreen> with common {
 
  
 
- Future reviewPending(int id) async{
-  print("*** start");
-   final response = await http
-        .post(Uri.parse("http://192.168.1.4:3002/users/doctorreviewpending"), 
-        body: {
-          'id':id.toString(),
-        }
-        );
-        print(response.statusCode);
-        return response.body;
- }
- 
+
 
 }

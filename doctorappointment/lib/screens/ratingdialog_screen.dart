@@ -65,18 +65,18 @@ int ? appId;
                      onPressed: (){
                       
                      postRating(rating ,commentController.text,appId!);
-                     
+                     if(rating>0 && commentController.text.isNotEmpty){
+                       Navigator.of(context).pop();
+                      showdialog(context, "Thank You");
+                     }
+                   else {
+                     showdialog(context, "Please Enter Some Value");
+                    
+                   }
                      setState(() {
                        rating=0;
                      });
-                  //    if(rating>0 && commentController.text.isNotEmpty){
-                  //      Navigator.of(context).pop();
-                  //     showdialog(context, "Thank You");
-                  //    }
-                  //  else {
-                  //    showdialog(context, "Please Enter Some Value");
-                    
-                  //  }
+                  
                    commentController.clear();
                      },
                     child:Text("OK",
@@ -217,37 +217,7 @@ part2(){
 
 }
 
-Future postRating(int rating,String comment,int appId)async{
-   final patdet = await shareddata.getpatdata();
-var Token=patdet.accessToken; 
-   print("+++++"+Token);
-  print("+++"+rating.toString()+"---"+comment+"***"+appId.toString());
-  final response = await http
-        .post(Uri.parse("http://192.168.1.4:3002/users/rating"), 
-         headers: <String, String>{
-              'Content-Type': 'application/json; charset=UTF-8',
-              'Authorization': 'Bearer $Token',
-            },
-        body: jsonEncode({
-      'appId': appId.toString(),
-      'ratingStars': rating.toString(),
-      'ratingReviewCmd': comment,
-      
 
-    },
-        ));
-     
-    print(response.statusCode);
-    if(rating>0 && commentController.text.isEmpty){
-                       Navigator.of(context).pop();
-                      showdialog(context, "Thank You");
-                     }
-                   else
-                     showdialog(context, "Please Enter Some Value");
-                    
-                   
-    return response.body;
-  }
 
   void transferdata() async {
     final patdet = await shareddata.getpatdata();

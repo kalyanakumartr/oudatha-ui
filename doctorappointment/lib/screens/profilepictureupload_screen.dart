@@ -17,7 +17,7 @@ class ProfilePicture extends StatefulWidget {
 
  
 
-class _ProfilePictureState extends State<ProfilePicture> {
+class _ProfilePictureState extends State<ProfilePicture> with common{
   
  File? imagepath; 
 // String? imagename;
@@ -191,7 +191,7 @@ print(imagepath);
          
       
     });
-  }
+   }
 
 
 Future getUserImage(int id) async {
