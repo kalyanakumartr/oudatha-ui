@@ -19,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> with common {
   bool passToggle = true;
   var UsernameController = TextEditingController();
   var PasswordController = TextEditingController();
-
+  var result;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -105,8 +105,7 @@ class _LoginScreenState extends State<LoginScreen> with common {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.all(10),
-                          onPrimary: Colors.blue,
+                          foregroundColor: Colors.blue, padding: const EdgeInsets.all(10),
                         ),
                         onPressed: () {
                           logincall(UsernameController.text,
@@ -156,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> with common {
   //}
 
   void logincall(String username, String password, BuildContext context) async {
-    var result = await login(username, password, context);
+     result = await login(username, password, context);
 
     UsernameController.clear();
     PasswordController.clear();

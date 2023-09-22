@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:doctorappointment/common/common.dart';
-import 'package:doctorappointment/models/patientDetailsModel.dart';
+// import 'package:doctorappointment/common/common.dart';
+// import 'package:doctorappointment/models/patientDetailsModel.dart';
 import 'package:doctorappointment/screens/details_screen.dart';
-import 'package:doctorappointment/screens/home_screen.dart';
-import 'package:doctorappointment/screens/login_screen.dart';
+// import 'package:doctorappointment/screens/home_screen.dart';
+// import 'package:doctorappointment/screens/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 Map<String, dynamic>? PatientList;

@@ -47,7 +47,7 @@ class _DentalScreenState extends State<DentalScreen> {
     user = widget.username;
     searchDoc=doctortype;
     //print(user!['DocName'].toString());
-    // TODO: implement initState
+   
     super.initState();
   }
 

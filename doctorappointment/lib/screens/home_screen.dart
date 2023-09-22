@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> with common {
    
      transferdata();
      getDocList();
-   // TODO: implement initState
+   
     super.initState();
    
   }
@@ -100,7 +100,7 @@ print("&&"+a.toString());
                   break;
 
                 case SampleItem.itemTwo:
-                  // TODO: Handle this case.
+                 
                   prefs = await SharedPreferences.getInstance();
                   await prefs?.clear();
                   Navigator.of(context).pushAndRemoveUntil(
@@ -108,7 +108,7 @@ print("&&"+a.toString());
                       (route) => false);
                   break;
                 case SampleItem.itemThree:
-                  // TODO: Handle this case.
+                  
                   break;
               }
             },
@@ -503,30 +503,26 @@ print("&&"+a.toString());
                                                                     0.6),
                                                           ),
                                                         ),
+                                                            ),
+                                                            Padding(
+                                                              padding:EdgeInsets.fromLTRB(0,5,0,0),
+                                                        
+                                                        
+                                                        child: Text("Rating: " +                                                        
+                                                           
+                                                          docImage[index]
+                                                                  ['rating'] 
+                                                              .toString()  ,
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            
+                                                            color: Colors.blue
+                                                                .withOpacity(
+                                                                    0.6),
+                                                          ),
+                                                        ),
                                                             )
-                                                        // SizedBox(height: 8),
-                                                        // Row(
-                                                        //   children: [
-                                                        //     Icon(
-                                                        //       Icons.star,
-                                                        //       color:
-                                                        //           Colors.amber,
-                                                        //     ),
-                                                        //     SizedBox(width: 5),
-                                                        //     Text(
-                                                        //       docImage[index][
-                                                        //               'docexpreience']
-                                                        //           .toString(),
-                                                        //       style: TextStyle(
-                                                        //         fontSize: 14,
-                                                        //         color: Colors
-                                                        //             .black
-                                                        //             .withOpacity(
-                                                        //                 0.6),
-                                                        //       ),
-                                                        //     ),
-                                                        //   ],
-                                                        // ),
+                                                        
                                                       ],
                                                     ),
                                                   ),

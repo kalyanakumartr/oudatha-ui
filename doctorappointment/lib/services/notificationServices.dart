@@ -30,7 +30,7 @@ class NotificationService {
               
             });
             // String? pay;
-              onSelectNotification:onSelectNotification;
+               onSelectNotification:onSelectNotification;
                 // onSelectNotification(pay);
    }
   notificationDetails() {

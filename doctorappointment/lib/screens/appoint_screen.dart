@@ -255,7 +255,7 @@ class _AppointScreenState extends State<AppointScreen> with common {
                                     ),
                                     SizedBox(height: 6),
                                     Text(
-                                      widget.username['DocId'].toString(),
+                                      widget.username['rating'].toString(),
                                       //doctortype[index]['DocName'].toString(),
                                       style: TextStyle(
                                         fontSize: 16,

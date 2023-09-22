@@ -1,7 +1,7 @@
-import 'dart:convert';
+// import 'dart:convert';
 import 'dart:math';
 import 'package:doctorappointment/common/common.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,7 +29,7 @@ int ? appId;
 @override
   void initState() {
         transferdata();    
-   // TODO: implement initState
+  
     super.initState();
    
   }

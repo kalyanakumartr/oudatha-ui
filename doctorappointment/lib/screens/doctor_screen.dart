@@ -2,7 +2,7 @@ import 'package:doctorappointment/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 import '../services/notificationServices.dart';
 import 'login_screen.dart';
@@ -78,10 +78,10 @@ class _DoctorScreenState extends State<DoctorScreen> with common {
                         (route) => false);
                     break;
                   case SampleItem.itemTwo:
-                    // TODO: Handle this case.
+                    
                     break;
                   case SampleItem.itemThree:
-                    // TODO: Handle this case.
+                    
                     break;
                 }
               },

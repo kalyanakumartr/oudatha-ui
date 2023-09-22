@@ -1,5 +1,4 @@
-import 'package:doctorappointment/screens/patient_details_screen.dart';
-import 'package:doctorappointment/models/patientDetailsModel.dart';
+
 import 'package:flutter/material.dart';
 Map< String,dynamic>? user;
  
@@ -20,7 +19,7 @@ class _DetailScreenState extends State<DetailScreen> {
   void initState() {
     user=widget.username;
     print(user!['username'].toString());
-    // TODO: implement initState
+   
     super.initState();
   }
  

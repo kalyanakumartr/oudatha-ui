@@ -1,9 +1,9 @@
-import 'dart:convert';
+// import 'dart:convert';
 import 'package:doctorappointment/screens/appoint_screen.dart';
 import 'package:doctorappointment/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import '../models/CategoriesModel.dart';
+// import 'package:http/http.dart' as http;
+// import '../models/CategoriesModel.dart';
 
    //List <dynamic> user;
 class DoctorsSection extends StatefulWidget {
@@ -25,7 +25,7 @@ class DoctorsSection extends StatefulWidget {
     //var username=searchDoc;
   //   searchDoc=doctortype;
   //   //print(user!['DocName'].toString());
-  //   // TODO: implement initState
+ 
   //   super.initState();
    }
 
