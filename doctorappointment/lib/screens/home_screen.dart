@@ -4,6 +4,7 @@ import 'package:doctorappointment/screens/appoint_screen.dart';
 import 'package:doctorappointment/screens/dental_screen.dart';
 import 'package:doctorappointment/screens/login_screen.dart';
 import 'package:doctorappointment/screens/profilepictureupload_screen.dart';
+import 'package:doctorappointment/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> with common {
   String?  gender;
   int?  stsId;
   int? appId;
-  
+  dynamic imageUrl;
 
 
   static List<Icon> catIcons = [
@@ -182,8 +183,10 @@ print("&&"+a.toString());
                                     child: CircleAvatar(
                                       radius: 30,
                                       backgroundImage:
-                                      
-                                           NetworkImage('http://192.168.1.4:3002/users/getuserimagefromlocal?id=${widget.user}'),
+                                            // imageUrl == null
+                                            // ?AssetImage("images/male.jpeg"):
+                                            NetworkImage('http://192.168.1.4:3002/users/getuserimagefromlocal?id=${widget.user}')
+                                          ,
                                       // gender ==
                                       // 'female'?
                                       //     AssetImage("images/female.jpg")
@@ -225,15 +228,21 @@ print("&&"+a.toString());
                               //width:400,
                               width: MediaQuery.of(context).size.width,
                                 height: 95,
-                                child: Center(
-                                child:Text("Advertisements here",
-                                style:TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                ),),
-                                color:Colors.blueAccent
+                                 child: Center(
+                                  child: GestureDetector (
+                                    onTap: () {
+                                        ;
+                                    },
+                                 child: SizedBox(width:400 ,child: Image(image: NetworkImage('https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'))),
+                                // child:Text("Advertisements here",
+                                // style:TextStyle(
+                                //   color: Colors.black,
+                                //   fontSize: 15,
+                                //   fontWeight: FontWeight.w500,
+                                // ),
+                                // ),                
+                                  ) ),
+                                // color:Colors.blueAccent
                              ),
                               Container(
                                 margin: EdgeInsets.only(top: 15, bottom: 20),
@@ -505,24 +514,47 @@ print("&&"+a.toString());
                                                         ),
                                                             ),
                                                             Padding(
-                                                              padding:EdgeInsets.fromLTRB(0,5,0,0),
-                                                        
-                                                        
-                                                        child: Text("Rating: " +                                                        
-                                                           
-                                                          docImage[index]
-                                                                  ['rating'] 
+                                                              padding:EdgeInsets.fromLTRB(0,5,0,0),                                             
+                                                        child: RichText(
+                                                          text: TextSpan(
+                                                           children: [
+                                                              TextSpan(
+                                                               text:docImage[index]
+                                                                   ['rating'] 
                                                               .toString()  ,
-                                                          style: TextStyle(
+                                                              style: TextStyle(
                                                             fontSize: 14,
                                                             
                                                             color: Colors.blue
                                                                 .withOpacity(
                                                                     0.6),
                                                           ),
-                                                        ),
-                                                            )
-                                                        
+                                                                 ),
+                                                                 
+                                                             
+                                                                  WidgetSpan(
+                                                             child: Icon(Icons.star, size: 20,color:Colors.yellow),
+                                                          ),
+                                                                // TextSpan(
+                                                                // )
+                                                                 ],
+                                                               ),
+                                                         )
+                                                         
+                                                        //  child: Text("Rating: " +      
+                                                        //          docImage[index]
+                                                        //           ['rating'] 
+                                                        //       .toString()  ,
+                                                        //   style: TextStyle(
+                                                        //     fontSize: 14,
+                                                            
+                                                        //     color: Colors.blue
+                                                        //         .withOpacity(
+                                                        //             0.6),
+                                                        //   ),
+                                                        // ),
+                                                        )
+                                                       
                                                       ],
                                                     ),
                                                   ),

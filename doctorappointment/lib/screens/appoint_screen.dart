@@ -1,6 +1,6 @@
 import 'package:doctorappointment/common/common.dart';
 import 'package:doctorappointment/common/sharedPreferences.dart';
-import 'package:doctorappointment/screens/payload_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 // import 'package:http/http.dart' as http;
@@ -30,6 +30,7 @@ class _AppointScreenState extends State<AppointScreen> with common {
   int? _currentIndex;
   int? currentSlotId;
   // bool _dateSelected = false;
+  // ignore: unused_field
   bool _timeSelected = false;
   int? userIdhere;
   String? name;
@@ -374,7 +375,7 @@ class _AppointScreenState extends State<AppointScreen> with common {
                                         ? null
                                         : setState(() {
                                             _currentIndex = index;
-                                            _timeSelected = true;
+                                           _timeSelected = true;
                                             currentSlotId =
                                                 doctorslot[index]['slotId'];
                                           });
@@ -509,10 +510,7 @@ void listenToNotification() =>
   void onNoticationListener(String? payload) {
     if (payload != null && payload.isNotEmpty) {
       print('payload $payload');
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: ((context) => payLoadScreen(payload: payload))));
+     
     }
   }
 

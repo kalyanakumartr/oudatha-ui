@@ -68,15 +68,12 @@ void transferdata() async {
                               CircleAvatar(
                                 radius: 100,
                                 backgroundImage: 
-                               
-                                  NetworkImage( 'http://192.168.1.4:3002/users/getuserimagefromlocal?id=${widget.username}'),
+                               imagepath == null
+                               ?AssetImage("images/male.jpeg")
+                               :NetworkImage( 'http://192.168.1.4:3002/users/getuserimagefromlocal?id=${widget.username}') as ImageProvider,
+                                 
     // 'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'),
-                                      //  FileImage(File(imageUrl.path)) ,
-                          //        imagepath == null
-                          //  ?  FileImage(File(imagepath!.path))
-                          //  :NetworkImage( 'http://192.168.1.4:3002/users/getuserimagefromlocal?id=${userIdhere}') as ImageProvider,
-                              //  Image.memory(getUserImage(53) as Uint8List) as ImageProvider,
-              //  FileImage(File(imagepath!.path)) 
+                                      //  FileImage(File(imageUrl.path)) ,                      
                                            
                                   // AssetImage("images/male.jpeg"),
                               
