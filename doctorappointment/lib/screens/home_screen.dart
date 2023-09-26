@@ -4,7 +4,7 @@ import 'package:doctorappointment/screens/appoint_screen.dart';
 import 'package:doctorappointment/screens/dental_screen.dart';
 import 'package:doctorappointment/screens/login_screen.dart';
 import 'package:doctorappointment/screens/profilepictureupload_screen.dart';
-import 'package:doctorappointment/screens/welcome_screen.dart';
+//import 'package:doctorappointment/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -224,24 +224,34 @@ print("&&"+a.toString());
                                 ),
                               ),
                               SizedBox(height: 10,),
-                             Container(
-                              //width:400,
-                              width: MediaQuery.of(context).size.width,
-                                height: 95,
-                                 child: Center(
+                             Container(                             
+                              // width:400,
+                              width:MediaQuery.of(context).size.width,
+                            decoration:BoxDecoration(
+                              border:Border.all(
+                                color:Colors.white
+                              ), 
+                              ),
+                                  height: 95,
+                                   child: Center(
                                   child: GestureDetector (
                                     onTap: () {
-                                        ;
+                                       
                                     },
-                                 child: SizedBox(width:400 ,child: Image(image: NetworkImage('https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'))),
-                                // child:Text("Advertisements here",
+                                  child: SizedBox(width:400,                               
+                                   child: Image(image: NetworkImage('https://docs.flutter.dev/assets/images/dash/dash-fainting.gif') 
+                                                             
+                                   ),
+                                 ),
+                                //  child: Text("Advertisements here",
                                 // style:TextStyle(
                                 //   color: Colors.black,
                                 //   fontSize: 15,
                                 //   fontWeight: FontWeight.w500,
                                 // ),
                                 // ),                
-                                  ) ),
+                                  ) 
+                                   ),
                                 // color:Colors.blueAccent
                              ),
                               Container(
@@ -479,43 +489,10 @@ print("&&"+a.toString());
                                                                 color:
                                                                     Colors.blue,
                                                               )),
-                                                      ]
-                                                      
 
-                                                      ),
-                                                            Padding(
-                                                              padding:EdgeInsets.fromLTRB(0,5,0,0),
-                                                        child: Text(
-                                                               docImage[index]
-                                                                  ['drDesignation']
-                                                              .toString(),
-                                                          style: TextStyle(
-                                                            fontSize: 14,
-                                                            color: Colors.blue
-                                                                
-                                                          ),
-                                                        ),
-                                                            ),
-                                                            Padding(
-                                                              padding:EdgeInsets.fromLTRB(0,5,0,0),
-                                                        child: Text(
-                                                          
-                                                           
-                                                          docImage[index]
-                                                                  ['docexpreience']
-                                                              .toString() + " yr ",
-                                                          style: TextStyle(
-                                                            fontSize: 14,
-                                                            
-                                                            color: Colors.blue
-                                                                .withOpacity(
-                                                                    0.6),
-                                                          ),
-                                                        ),
-                                                            ),
-                                                            Padding(
-                                                              padding:EdgeInsets.fromLTRB(0,5,0,0),                                             
-                                                        child: RichText(
+                                                              //  Padding(
+                                                              // padding:EdgeInsets.fromLTRB(0,5,0,0),                                             
+                                                         RichText(
                                                           text: TextSpan(
                                                            children: [
                                                               TextSpan(
@@ -526,8 +503,8 @@ print("&&"+a.toString());
                                                             fontSize: 14,
                                                             
                                                             color: Colors.blue
-                                                                .withOpacity(
-                                                                    0.6),
+                                                                // .withOpacity(
+                                                                //     0.6),
                                                           ),
                                                                  ),
                                                                  
@@ -553,7 +530,47 @@ print("&&"+a.toString());
                                                         //             0.6),
                                                         //   ),
                                                         // ),
-                                                        )
+                                                        // )
+                                                      ]                                                  
+                                                      ),
+                                                      SizedBox(height:5),
+                                                      Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        children: [
+                                                           Padding(
+                                                              padding:EdgeInsets.fromLTRB(0,5,0,0),
+                                                        child: Text(
+                                                               docImage[index]
+                                                                  ['drDesignation']
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            color: Colors.blue
+                                                                
+                                                          ),
+                                                        ),
+                                                      
+                                                            ),
+                                                           
+                                                            Padding(
+                                                              padding:EdgeInsets.fromLTRB(0,5,0,0),
+                                                        child: Text(                                                        
+                                                                 docImage[index]
+                                                                  ['docexpreience']
+                                                              .toString() + " yr ",
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            
+                                                            color: Colors.blue
+                                                                // .withOpacity(
+                                                                //     0.6),
+                                                          ),
+                                                        ),
+                                                            ),
+
+                                                        ],
+                                                      )
+                                                                                                             
                                                        
                                                       ],
                                                     ),

@@ -68,9 +68,9 @@ void transferdata() async {
                               CircleAvatar(
                                 radius: 100,
                                 backgroundImage: 
-                               imagepath == null
-                               ?AssetImage("images/male.jpeg")
-                               :NetworkImage( 'http://192.168.1.4:3002/users/getuserimagefromlocal?id=${widget.username}') as ImageProvider,
+                              //  imagepath == null
+                              //  ?AssetImage("images/male.jpeg"):
+                               NetworkImage( 'http://172.20.10.4:3002/users/getuserimagefromlocal?id=${widget.username}')
                                  
     // 'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'),
                                       //  FileImage(File(imageUrl.path)) ,                      
